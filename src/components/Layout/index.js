@@ -7,8 +7,6 @@ import Footer from '../Footer';
 export default function Layout() {
   return (
     <>
-      {/* componentDidCatch */}
-      {/* {undefined.map((item) => item)} */}
       <Header />
       <PostsList />
       <Footer />

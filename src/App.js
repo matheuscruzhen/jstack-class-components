@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log({
+    console.log('componentDidUpdate', {
       currentState: this.state,
       prevState,
       prevProps,
@@ -25,7 +25,17 @@ class App extends Component {
   }
 
   componentDidCatch(error, info) {
-    console.log({ error, info });
+    console.log('componentDidCatch', { error, info });
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldComponentUpdate', {
+      currentState: this.state,
+      nextState,
+      nextProps,
+    });
+
+    return true;
   }
 
   render() {
