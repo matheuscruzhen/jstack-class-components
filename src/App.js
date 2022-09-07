@@ -13,6 +13,7 @@ class App extends Component {
     this.state = {
       theme: 'dark',
     };
+    this.handleToggleTheme = this.handleToggleTheme.bind(this);
   }
 
   // const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
@@ -20,22 +21,19 @@ class App extends Component {
   // useEffect(() => {
   //   localStorage.setItem('theme', JSON.stringify(theme));
   // }, [theme]);
+  handleToggleTheme() {
+    this.setState((prevState) => ({
+      theme: prevState.theme === 'light' ? 'dark' : 'light',
+    }));
+  }
+
   render() {
     const { theme } = this.state;
-
-    function handleToggleTheme() {}
 
     return (
       <ThemeProvider theme={themes[theme] || themes.dark}>
         <GlobalStyle />
-        <Layout
-          onToggleTheme={() => {
-            this.setState((prevState) => ({
-              theme: prevState.theme === 'light' ? 'dark' : 'light',
-            }));
-          }}
-          selectedTheme={theme}
-        />
+        <Layout onToggleTheme={this.handleToggleTheme} selectedTheme={theme} />
       </ThemeProvider>
     );
   }
