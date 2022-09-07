@@ -8,6 +8,10 @@ import Layout from './components/Layout';
 import themes from './styles/themes';
 
 class App extends Component {
+  componentDidMount() {
+    console.log('componentDidMount executed');
+  }
+
   render() {
     return (
       <ThemeProvider>
