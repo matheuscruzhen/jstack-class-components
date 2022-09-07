@@ -8,8 +8,20 @@ import Layout from './components/Layout';
 import themes from './styles/themes';
 
 class App extends Component {
+  state = {
+    changed: false,
+  };
+
   componentDidMount() {
     console.log('componentDidMount executed');
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log({
+      currentState: this.state,
+      prevState,
+      prevProps,
+    });
   }
 
   render() {
@@ -19,6 +31,9 @@ class App extends Component {
           {({ theme }) => (
             <StyledThemeProvider theme={themes[theme] || themes.dark}>
               <GlobalStyle />
+              <button onClick={() => this.setState({ changed: true })}>
+                Change State
+              </button>
               <Layout />
             </StyledThemeProvider>
           )}
