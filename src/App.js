@@ -38,6 +38,8 @@ class App extends Component {
     return true;
   }
 
+  componentWillUnmount() {}
+
   render() {
     return (
       <ThemeProvider>
