@@ -7,25 +7,15 @@ import Layout from './components/Layout';
 import themes from './styles/themes';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    theme: 'dark',
+  };
 
-    this.state = {
-      theme: 'dark',
-    };
-    this.handleToggleTheme = this.handleToggleTheme.bind(this);
-  }
-
-  // const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
-
-  // useEffect(() => {
-  //   localStorage.setItem('theme', JSON.stringify(theme));
-  // }, [theme]);
-  handleToggleTheme() {
+  handleToggleTheme = () => {
     this.setState((prevState) => ({
       theme: prevState.theme === 'light' ? 'dark' : 'light',
     }));
-  }
+  };
 
   render() {
     const { theme } = this.state;
