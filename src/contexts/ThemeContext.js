@@ -13,7 +13,13 @@ export class ThemeProvider extends Component {
       console.log(error);
     }
 
-    state = { theme };
+    this.state = { theme };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.theme !== this.state.theme) {
+      localStorage.setItem('theme', JSON.stringify(this.state.theme));
+    }
   }
 
   handleToggleTheme = () => {
